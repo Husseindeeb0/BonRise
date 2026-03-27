@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  /* THEME: Deep Blue & Vibrant Teal */
+  --primary: #03045e;
+  --secondary: #2ec4b6;
+  --accent-1: #0077b6;
+  --accent-2: #00b4d8;
+  --accent-3: #20a39e;
+  --background: #e6fffa;
+  --neutral: #90e0ef;
+
+  --font-main: "Inter", "system-ui", "sans-serif";
+  --font-heading: "Plus Jakarta Sans", "sans-serif";
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-neutral: var(--neutral);
+  --color-background: var(--background);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  
+  --font-sans: var(--font-main);
+  --font-heading: var(--font-heading);
+}
+
+:root {
+  background-color: var(--background);
+  color: #1a1a1a;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-primary;
+    font-family: var(--font-heading);
+  }
+}
+
+.glass-morphism {
+  background: color-mix(in srgb, var(--background) 80%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--accent-1) 10%, transparent);
+}
+
+.btn-primary {
+  @apply px-6 py-3 bg-primary text-white rounded-lg font-semibold transition-all duration-300 hover:opacity-90 hover:bg-secondary active:scale-95 cursor-pointer inline-block text-center;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-secondary text-white rounded-lg font-semibold transition-all duration-300 hover:opacity-90 hover:scale-105 active:scale-95 cursor-pointer inline-block text-center;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}

@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
  * HeroBackgroundAnimation
  * Refined 9-icon business transformation story for BOnRise.
  *
- * Cross-fade transition: The brand logo appears exactly as the solution grid
- * and interface window begin to fade away, creating a simultaneous morphing effect.
+ * Icons use a darker, more sophisticated teal-blue palette.
  */
 
 const DURATION = 10;
@@ -16,7 +15,7 @@ const TRANSITION = {
   repeat: Infinity,
 } as const;
 
-// UPDATED: High-fidelity professional SVG paths for all 9 icons
+// UPDATED: Icons with simplified but detailed paths
 const ICONS = {
   // Store / Shop
   Shop: (
@@ -164,7 +163,8 @@ const HeroBackgroundAnimation: React.FC = () => {
       >
         <defs>
           <linearGradient id="hubGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="var(--secondary)" stopOpacity="0.25" />
+            {/* Darker Hub Gradient stop */}
+            <stop offset="0%" stopColor="var(--accent-3)" stopOpacity="0.25" />
             <stop
               offset="100%"
               stopColor="var(--accent-1)"
@@ -173,13 +173,13 @@ const HeroBackgroundAnimation: React.FC = () => {
           </linearGradient>
         </defs>
 
-        {/* Phase 6: Signal Waves */}
+        {/* Phase 6: Signal Waves - Darker Stroke */}
         <motion.circle
           cx="500"
           cy="300"
           r="100"
           fill="none"
-          stroke="var(--secondary)"
+          stroke="var(--accent-3)"
           strokeWidth="3"
           animate={{
             scale: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 6],
@@ -242,15 +242,16 @@ const HeroBackgroundAnimation: React.FC = () => {
           );
         })}
 
-        {/* Phase 4: Hub Interface (Solution) - CROSS-FADES WITH LOGO */}
+        {/* Phase 4: Hub Interface (Solution) - Darker Frame */}
         <motion.g
           animate={{
-            opacity: [0, 0, 0, 0, 1, 1, 0, 0], // Peak at 4/5, stay at 5, hide after 5
+            opacity: [0, 0, 0, 0, 1, 1, 0, 0], 
             scale: [0.8, 0.8, 0.8, 0.4, 1, 1, 0.8, 0.4],
           }}
           transition={TRANSITION}
           style={{ transformOrigin: "500px 300px" }}
         >
+          {/* Main Frame using accent-3 for a darker professional tone */}
           <rect
             x="220"
             y="140"
@@ -258,7 +259,7 @@ const HeroBackgroundAnimation: React.FC = () => {
             height="320"
             rx="24"
             fill="url(#hubGradient)"
-            stroke="var(--secondary)"
+            stroke="var(--accent-3)"
             strokeWidth="1.5"
           />
           <rect
@@ -295,7 +296,7 @@ const HeroBackgroundAnimation: React.FC = () => {
           })}
         </motion.g>
 
-        {/* Phase 1-6: Professional Line-Based Icons - CROSS-FADES WITH LOGO */}
+        {/* Phase 1-6: Icons - Using Darker Accent-3 for strokes */}
         {MAIN_NODES.map((n) => (
           <motion.g
             key={n.id}
@@ -324,7 +325,7 @@ const HeroBackgroundAnimation: React.FC = () => {
               scale: [0.7, 0.9, 1.1, 0.3, 0.85, 0.85, 0.6, 0.7],
             }}
             transition={TRANSITION}
-            stroke="var(--secondary)"
+            stroke="var(--accent-3)"
           >
             <circle
               r="20"
@@ -335,7 +336,7 @@ const HeroBackgroundAnimation: React.FC = () => {
             <g
               transform="translate(-12, -12) scale(1)"
               fill="none"
-              stroke="var(--secondary)"
+              stroke="var(--accent-3)"
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -345,10 +346,10 @@ const HeroBackgroundAnimation: React.FC = () => {
           </motion.g>
         ))}
 
-        {/* Phase 5: Success (BonRise Logo) - APPEARS AS HUD FADES */}
+        {/* Phase 5: Success (BonRise Logo) */}
         <motion.g
           animate={{
-            opacity: [0, 0, 0, 0, 0, 0, 1, 0], // Hub is 1 at index 5, 0 at index 6. Logo is 0 at index 5, 1 at index 6.
+            opacity: [0, 0, 0, 0, 0, 0, 1, 0], 
             scale: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1.1, 0.4],
           }}
           transition={TRANSITION}
@@ -358,7 +359,7 @@ const HeroBackgroundAnimation: React.FC = () => {
             cx="500"
             cy="300"
             r="100"
-            fill="var(--secondary)"
+            fill="var(--accent-3)"
             opacity="0.4"
             style={{ filter: "blur(40px)" }}
           />
@@ -370,7 +371,7 @@ const HeroBackgroundAnimation: React.FC = () => {
           cx="500"
           cy="300"
           r="50"
-          fill="var(--secondary)"
+          fill="var(--accent-3)"
           animate={{
             scale: [0, 0, 0, 0, 0, 0, 3, 0],
             opacity: [0, 0, 0, 0, 0, 0, 0.3, 0],

@@ -22,7 +22,7 @@
   --color-accent-1: var(--accent-1);
   --color-accent-2: var(--accent-2);
   --color-accent-3: var(--accent-3);
-  
+
   --font-sans: var(--font-main);
   --font-heading: var(--font-heading);
 }
@@ -41,7 +41,12 @@ body {
 }
 
 @layer base {
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold text-primary;
     font-family: var(--font-heading);
   }
@@ -55,16 +60,22 @@ body {
 }
 
 .btn-primary {
-  @apply px-6 py-3 bg-primary text-white rounded-lg font-semibold transition-all duration-300 hover:opacity-90 hover:bg-secondary active:scale-95 cursor-pointer inline-block text-center;
+  @apply px-6 py-3 bg-primary text-white rounded-lg font-semibold transition-all duration-300 hover:opacity-90 hover:bg-secondary cursor-pointer inline-block text-center;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 bg-secondary text-white rounded-lg font-semibold transition-all duration-300 hover:opacity-90 hover:scale-105 active:scale-95 cursor-pointer inline-block text-center;
+  @apply px-6 py-3 bg-secondary text-white rounded-lg font-semibold transition-all duration-300 hover:opacity-90 cursor-pointer inline-block text-center;
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {

@@ -1,9 +1,9 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import ContactCTA from './components/ContactCTA';
-import Footer from './components/Footer';
+import Navbar from "./components/Navbar";
+import Hero from "./components/Landing/Hero";
+import About from "./components/Landing/About";
+import Services from "./components/Landing/Services";
+import ContactCTA from "./components/Landing/ContactCTA";
+import Footer from "./components/Footer";
 
 function App() {
   return (

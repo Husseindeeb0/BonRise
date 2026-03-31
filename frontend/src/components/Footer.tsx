@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
         {/* Copyright */}
         <div className="border-t border-white/5 pt-10 text-center">
           <p className="text-accent-1 text-sm">
-            © {new Date().getFullYear()} BOnRise Software Solutions. All rights reserved.
+            © {new Date().getFullYear()} BonRise Software Solutions. All rights reserved.
           </p>
         </div>
       </div>

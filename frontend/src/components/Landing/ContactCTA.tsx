@@ -25,25 +25,43 @@ const ContactCTA: React.FC = () => {
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto mb-10 md:mb-16">
-              <a 
-                href="tel:+96170063612" 
-                className="group flex flex-col sm:flex-row items-center justify-between p-6 sm:p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all text-center sm:text-left gap-4"
-              >
-                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+              {/* Call Us Card */}
+              <div className="flex flex-col p-6 sm:p-8 bg-white/5 border border-white/10 rounded-2xl text-center sm:text-left">
+                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-8">
                   <div className="w-14 h-14 sm:w-16 sm:h-16 bg-secondary/20 rounded-xl flex items-center justify-center text-secondary shrink-0">
                     <Phone className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
                   <div>
                     <p className="text-[10px] sm:text-xs font-black text-secondary uppercase tracking-[0.2em] mb-1 opacity-70">Call Us</p>
-                    <p className="text-xl sm:text-2xl font-black text-white tracking-tighter shrink-0">+961 70 063 612</p>
+                    <h3 className="text-xl sm:text-2xl font-black text-white tracking-tighter">Direct Support</h3>
                   </div>
                 </div>
-                <ArrowRight className="hidden sm:block text-white/20 group-hover:text-secondary group-hover:translate-x-2 transition-all" />
-              </a>
+                
+                <div className="grid grid-cols-1 gap-3 sm:gap-4">
+                  {[
+                    { num: "+961 70 063 612", tel: "+96170063612" },
+                    { num: "+961 76 132 524", tel: "+96176132524" }
+                  ].map((phone) => (
+                    <a 
+                      key={phone.tel}
+                      href={`tel:${phone.tel}`}
+                      className="group flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-xl hover:bg-secondary/10 hover:border-secondary/20 transition-all"
+                    >
+                      <span className="text-lg sm:text-xl font-black text-white tracking-tighter group-hover:text-secondary transition-colors">
+                        {phone.num}
+                      </span>
+                      <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-secondary group-hover:text-primary transition-all">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
 
+              {/* Email Us Card */}
               <a 
                 href="mailto:bonrise50@gmail.com" 
-                className="group flex flex-col sm:flex-row items-center justify-between p-6 sm:p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all text-center sm:text-left gap-4"
+                className="group flex flex-col justify-between p-6 sm:p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all text-center sm:text-left gap-4"
               >
                 <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 overflow-hidden">
                   <div className="w-14 h-14 sm:w-16 sm:h-16 bg-accent-1/20 rounded-xl flex items-center justify-center text-accent-1 shrink-0">
@@ -54,7 +72,12 @@ const ContactCTA: React.FC = () => {
                     <p className="text-xl sm:text-2xl font-black text-white tracking-tighter truncate">bonrise50@gmail.com</p>
                   </div>
                 </div>
-                <ArrowRight className="hidden sm:block text-white/20 group-hover:text-accent-1 group-hover:translate-x-2 transition-all" />
+                <div className="mt-auto hidden lg:flex items-center justify-between text-white/40 group-hover:text-accent-1 transition-colors">
+                  <span className="text-sm font-bold uppercase tracking-widest">Get in touch via email</span>
+                  <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                </div>
+                {/* Mobile version of the arrow/text */}
+                <ArrowRight className="lg:hidden mx-auto text-white/20 group-hover:text-accent-1 transition-all" />
               </a>
             </div>
           </motion.div>

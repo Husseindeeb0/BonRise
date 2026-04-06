@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogOut, User as UserIcon } from "lucide-react";
+import {
+  useLogoutMutation,
+  useCheckAuthQuery,
+} from "../state/services/auth/authAPI";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  const { data: authData } = useCheckAuthQuery();
+  const user = authData?.data;
+  const isAuthenticated = !!user;
+
+  const [logout] = useLogoutMutation();
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -24,9 +34,22 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: "About Us", path: "/about" },
-    { name: "Signup", path: "/signup" },
-    { name: "Login", path: "/login" },
+    ...(!isAuthenticated
+      ? [
+          { name: "Signup", path: "/signup" },
+          { name: "Login", path: "/login" },
+        ]
+      : []),
   ];
+
+  const handleLogout = async () => {
+    try {
+      await logout().unwrap();
+      setIsOpen(false);
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
+  };
 
   return (
     <nav
@@ -50,16 +73,16 @@ const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden md:flex items-center gap-8">
             <div className="flex items-center space-x-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`px-4 py-2 text-sm font-black transition-all duration-300 relative group uppercase tracking-[0.2em] ${
+                  className={`px-4 py-2 text-xs font-black transition-all duration-300 relative group uppercase tracking-[0.2em] ${
                     scrolled
-                      ? "text-primary"
-                      : "text-neutral hover:text-secondary"
+                      ? "text-primary hover:text-secondary"
+                      : "text-neutral hover:text-white"
                   }`}
                 >
                   {link.name}
@@ -70,6 +93,34 @@ const Navbar: React.FC = () => {
                   ></span>
                 </Link>
               ))}
+
+              {isAuthenticated && (
+                <div className="flex items-center gap-4 ml-4">
+                  <div
+                    className={`flex items-center gap-2 px-4 py-2 rounded-full border ${
+                      scrolled
+                        ? "border-primary/10 bg-primary/5 text-primary"
+                        : "border-white/20 bg-white/10 text-white"
+                    }`}
+                  >
+                    <UserIcon size={14} />
+                    <span className="text-[10px] font-black uppercase tracking-widest">
+                      {user?.username}
+                    </span>
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className={`p-2 rounded-full transition-all hover:scale-110 ${
+                      scrolled
+                        ? "text-primary hover:bg-primary/5"
+                        : "text-white hover:bg-white/10"
+                    }`}
+                    title="Logout"
+                  >
+                    <LogOut size={18} />
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
@@ -124,6 +175,21 @@ const Navbar: React.FC = () => {
                   </Link>
                 </motion.div>
               ))}
+
+              {isAuthenticated && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                >
+                  <button
+                    onClick={handleLogout}
+                    className="group block w-full px-8 py-4 text-sm font-black rounded-full transition-all uppercase tracking-[0.2em] text-center bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white"
+                  >
+                    Logout
+                  </button>
+                </motion.div>
+              )}
             </div>
           </motion.div>
         )}

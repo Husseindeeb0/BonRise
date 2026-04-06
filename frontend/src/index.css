@@ -52,6 +52,10 @@ body {
   }
 }
 
+button {
+  cursor: pointer;
+}
+
 .glass-morphism {
   background: color-mix(in srgb, var(--background) 80%, transparent);
   backdrop-filter: blur(12px);

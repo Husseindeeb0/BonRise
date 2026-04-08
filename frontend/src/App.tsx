@@ -7,12 +7,9 @@ import ContactCTA from "./components/Landing/ContactCTA";
 import Footer from "./components/Footer";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
-import AboutUs from "./pages/AboutUs";
-import { useCheckAuthQuery } from "./state/services/auth/authAPI";
+import AboutUs from "./pages/About";
 
 function App() {
-  // Silent Auth Check on mount
-  useCheckAuthQuery();
 
   return (
     <div className="min-h-screen bg-background selection:bg-secondary selection:text-white font-outfit">

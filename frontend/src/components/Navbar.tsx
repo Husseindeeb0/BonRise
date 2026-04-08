@@ -4,19 +4,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, LogOut, User as UserIcon } from "lucide-react";
 import {
   useLogoutMutation,
-  useCheckAuthQuery,
 } from "../state/services/auth/authAPI";
+import { useAuth } from "../hooks/useAuth";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const { data: authData } = useCheckAuthQuery();
-  const user = authData?.data;
-  const isAuthenticated = !!user;
+  const { user, isAuthenticated } = useAuth();
 
   const [logout] = useLogoutMutation();
+  const isSolidPage = ["/about"].includes(location.pathname);
+  const isCompact = scrolled || isOpen || isSolidPage;
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -53,21 +53,20 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 overflow-hidden ${
-        scrolled || isOpen
+      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 overflow-hidden ${
+        isCompact
           ? "py-4 glass-morphism shadow-2xl border-b border-primary/5"
           : "py-6 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-12">
-          {/* Logo Section */}
-          <Link to="/" className="shrink-0 flex items-center">
+            <Link to="/" className="shrink-0 flex items-center">
             <img
               src="/logo.png"
               alt="BonRise Logo"
               className={`w-40 h-auto transition-all duration-500 ${
-                !scrolled && !isOpen ? "brightness-0 invert" : ""
+                !isCompact ? "brightness-0 invert" : ""
               }`}
             />
           </Link>
@@ -80,7 +79,7 @@ const Navbar: React.FC = () => {
                   key={link.name}
                   to={link.path}
                   className={`px-4 py-2 text-xs font-black transition-all duration-300 relative group uppercase tracking-[0.2em] ${
-                    scrolled
+                    isCompact
                       ? "text-primary hover:text-secondary"
                       : "text-neutral hover:text-white"
                   }`}
@@ -88,7 +87,7 @@ const Navbar: React.FC = () => {
                   {link.name}
                   <span
                     className={`absolute bottom-1 left-4 right-4 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform origin-left ${
-                      scrolled ? "bg-secondary" : "bg-white"
+                      isCompact ? "bg-secondary" : "bg-white"
                     }`}
                   ></span>
                 </Link>
@@ -98,7 +97,7 @@ const Navbar: React.FC = () => {
                 <div className="flex items-center gap-4 ml-4">
                   <div
                     className={`flex items-center gap-2 px-4 py-2 rounded-full border ${
-                      scrolled
+                      isCompact
                         ? "border-primary/10 bg-primary/5 text-primary"
                         : "border-white/20 bg-white/10 text-white"
                     }`}
@@ -111,7 +110,7 @@ const Navbar: React.FC = () => {
                   <button
                     onClick={handleLogout}
                     className={`p-2 rounded-full transition-all hover:scale-110 ${
-                      scrolled
+                      isCompact
                         ? "text-primary hover:bg-primary/5"
                         : "text-white hover:bg-white/10"
                     }`}
@@ -129,7 +128,7 @@ const Navbar: React.FC = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2.5 transition-all rounded-full border-2 active:scale-90 ${
-                scrolled || isOpen
+                isCompact
                   ? "text-primary bg-primary/5 border-primary/10 hover:bg-secondary/10 hover:border-secondary"
                   : "text-white bg-white/5 border-white/20 hover:bg-white/10 hover:border-white"
               }`}

@@ -10,17 +10,20 @@ import { useAuth } from "../hooks/useAuth";
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const location = useLocation();
 
   const { user, isAuthenticated } = useAuth();
 
   const [logout] = useLogoutMutation();
+
   const isSolidPage = ["/about"].includes(location.pathname);
   const isCompact = scrolled || isOpen || isSolidPage;
 
-  // Close mobile menu on route change
+  // Close menus on route change
   useEffect(() => {
     setIsOpen(false);
+    setShowUserMenu(false);
   }, [location]);
 
   // Handle scroll effect
@@ -46,6 +49,7 @@ const Navbar: React.FC = () => {
     try {
       await logout().unwrap();
       setIsOpen(false);
+      setShowUserMenu(false);
     } catch (err) {
       console.error("Logout failed:", err);
     }
@@ -53,7 +57,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 overflow-hidden ${
+      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 ${
         isCompact
           ? "py-4 glass-morphism shadow-2xl border-b border-primary/5"
           : "py-6 bg-transparent"
@@ -94,30 +98,45 @@ const Navbar: React.FC = () => {
               ))}
 
               {isAuthenticated && (
-                <div className="flex items-center gap-4 ml-4">
-                  <div
-                    className={`flex items-center gap-2 px-4 py-2 rounded-full border ${
-                      isCompact
-                        ? "border-primary/10 bg-primary/5 text-primary"
-                        : "border-white/20 bg-white/10 text-white"
+                <div 
+                  className="relative ml-4 user-menu-container py-2"
+                  onMouseEnter={() => setShowUserMenu(true)}
+                  onMouseLeave={() => setShowUserMenu(false)}
+                >
+                  <button
+                    className={`flex items-center gap-3 px-5 py-2.5 rounded-full border transition-all duration-300 ${
+                      showUserMenu
+                        ? "bg-secondary border-secondary text-white"
+                        : isCompact
+                        ? "border-primary/10 bg-primary/5 text-primary hover:border-secondary hover:text-secondary"
+                        : "border-white/20 bg-white/10 text-white hover:border-white hover:bg-white/20"
                     }`}
                   >
-                    <UserIcon size={14} />
+                    <UserIcon size={14} className={showUserMenu ? "animate-pulse" : ""} />
                     <span className="text-[10px] font-black uppercase tracking-widest">
                       {user?.username}
                     </span>
-                  </div>
-                  <button
-                    onClick={handleLogout}
-                    className={`p-2 rounded-full transition-all hover:scale-110 ${
-                      isCompact
-                        ? "text-primary hover:bg-primary/5"
-                        : "text-white hover:bg-white/10"
-                    }`}
-                    title="Logout"
-                  >
-                    <LogOut size={18} />
                   </button>
+
+                  <AnimatePresence>
+                    {showUserMenu && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="absolute right-0 mt-2 w-48 py-2 glass-morphism rounded-2xl shadow-2xl border border-white/20 overflow-hidden"
+                      >
+                        <button
+                          onClick={handleLogout}
+                          className="w-full flex items-center justify-between px-6 py-3 text-[10px] font-black uppercase tracking-widest text-red-500 hover:bg-red-500/10 transition-colors"
+                        >
+                          Logout
+                          <LogOut size={14} />
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               )}
             </div>
@@ -180,7 +199,14 @@ const Navbar: React.FC = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: navLinks.length * 0.05 }}
+                  className="flex flex-col gap-3 mt-4 pt-4 border-t border-primary/10"
                 >
+                  <div className="flex items-center gap-3 px-8 py-2 text-primary/50">
+                    <UserIcon size={14} />
+                    <span className="text-[10px] font-black uppercase tracking-widest">
+                      {user?.username}
+                    </span>
+                  </div>
                   <button
                     onClick={handleLogout}
                     className="group block w-full px-8 py-4 text-sm font-black rounded-full transition-all uppercase tracking-[0.2em] text-center bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white"

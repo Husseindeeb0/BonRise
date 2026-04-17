@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HeroBackgroundAnimation from "./HeroBackgroundAnimation";
+import { HeroBackgroundAnimation } from "./HeroBackgroundAnimation";
 
 const Hero: React.FC = () => {
   return (
@@ -58,4 +58,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export { Hero };

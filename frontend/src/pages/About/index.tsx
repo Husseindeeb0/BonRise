@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import {
   Target,
@@ -13,20 +13,16 @@ import {
 import { FaLinkedin } from "react-icons/fa";
 
 const AboutUs: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const founders = [
     {
       name: "Hussein Deeb",
-      role: "Founder & CEO",
-      linkedin: "https://www.linkedin.com/in/hussein-deeb-0/",
+      role: "CEO & CTO",
+      linkedin: "https://www.linkedin.com/in/hussein-deeb0/",
       bio: "Visionary leader dedicated to transforming how businesses operate in the digital age. Bridge the gap between social selling and robust digital ecosystems.",
     },
     {
-      name: "Team Lead",
-      role: "Operations Director",
+      name: "Mustafa Fawaz",
+      role: "CPO & CMO",
       linkedin: "https://www.linkedin.com/",
       bio: "Ensuring every project meets our rigorous standards of excellence and client satisfaction.",
     },
@@ -252,42 +248,43 @@ const AboutUs: React.FC = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center justify-center w-24 h-24 bg-white/5 rounded-[2rem] mb-12 border border-white/10 shadow-2xl backdrop-blur-xl"
-            >
-              <Target className="text-secondary w-12 h-12" />
-            </motion.div>
             <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-16 leading-none">
               The Ultimate <br />
               <span className="text-secondary italic font-serif">
                 Aspiration
               </span>
             </h2>
-            <div className="p-12 md:p-24 glass-morphism rounded-[4rem] border-2 border-white/10 bg-white/5 backdrop-blur-3xl shadow-[0_100px_200px_-50px_rgba(0,0,0,0.5)] relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-3 h-full bg-secondary transition-all duration-700"></div>
-              <p className="text-2xl md:text-4xl font-bold text-white leading-tight italic tracking-tight">
-                "To establish absolute digital authority for every client we
-                serve, transforming their business into a scalable powerhouse
-                through innovative software and uncompromising performance."
+            <div className="p-12 md:p-24 glass-morphism rounded-[4rem] border-2 border-white/10 bg-white/10 backdrop-blur-3xl shadow-[0_100px_200px_-50px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+              {/* Infinite Moving Light Beams */}
+              <motion.div
+                animate={{ x: ["-100%", "400%"] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatDelay: 0.5,
+                }}
+                className="absolute inset-y-0 w-64 bg-linear-to-r from-transparent via-secondary/20 to-transparent -skew-x-20 z-0 pointer-events-none"
+              />
+              <motion.div
+                animate={{ x: ["-100%", "500%"] }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "linear",
+                  delay: 2,
+                }}
+                className="absolute inset-y-0 w-48 bg-linear-to-r from-transparent via-secondary/10 to-transparent -skew-x-20 z-0 pointer-events-none"
+              />
+
+              <p className="text-2xl md:text-3xl font-bold text-white leading-tight italic tracking-tight relative z-10">
+                Our goal is to build a powerful and commanding online presence
+                for your business, designed to convert visitors into loyal
+                customers. By organizing your products and services into a
+                professional, high-performance digital ecosystem, we ensure your
+                clients find exactly what they need effortlessly, providing them
+                with all the necessary information directly and instantly.
               </p>
-              <div className="mt-20 flex flex-wrap justify-center gap-16 lg:gap-24">
-                <div className="text-center">
-                  <div className="text-6xl font-black text-secondary">100%</div>
-                  <div className="text-[12px] text-white/40 uppercase tracking-[0.3em] font-black mt-3">
-                    Digital Ownership
-                  </div>
-                </div>
-                <div className="w-px h-24 bg-white/10 hidden md:block"></div>
-                <div className="text-center">
-                  <div className="text-6xl font-black text-secondary">∞</div>
-                  <div className="text-[12px] text-white/40 uppercase tracking-[0.3em] font-black mt-3">
-                    Peak Performance
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -305,7 +302,7 @@ const AboutUs: React.FC = () => {
             <h2 className="text-5xl md:text-7xl font-black text-primary uppercase tracking-tighter mb-6 leading-none">
               Our{" "}
               <span className="text-secondary italic font-serif">
-                LEADERSHIP
+                FOUNDERS
               </span>
             </h2>
             <div className="h-1.5 w-24 bg-secondary mx-auto rounded-full mb-8"></div>

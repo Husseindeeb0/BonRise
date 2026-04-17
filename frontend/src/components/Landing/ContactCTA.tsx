@@ -87,4 +87,4 @@ const ContactCTA: React.FC = () => {
   );
 };
 
-export default ContactCTA;
+export { ContactCTA };

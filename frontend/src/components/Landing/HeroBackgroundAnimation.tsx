@@ -254,4 +254,4 @@ const HeroBackgroundAnimation: React.FC = () => {
   );
 };
 
-export default HeroBackgroundAnimation;
+export { HeroBackgroundAnimation };

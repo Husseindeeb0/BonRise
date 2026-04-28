@@ -2,8 +2,7 @@ import type { CorsOptions } from "cors";
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://bonrise.netlify.app/",
-  "https://bonrise.netlify.app/api/"
+  "https://bonrise.netlify.app"
 ];
 
 const corsOptions: CorsOptions = {

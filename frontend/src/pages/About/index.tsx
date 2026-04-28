@@ -15,13 +15,13 @@ const AboutUs: React.FC = () => {
   const founders = [
     {
       name: "Hussein Deeb",
-      role: "CEO & CTO",
+      role: "Co-founder & Full Stack Developer",
       linkedin: "https://www.linkedin.com/in/hussein-deeb0/",
       bio: "Visionary leader dedicated to transforming how businesses operate in the digital age. Bridge the gap between social selling and robust digital ecosystems.",
     },
     {
       name: "Mustafa Fawaz",
-      role: "CPO & CMO",
+      role: "Co-founder & Sales Manager",
       linkedin: "https://www.linkedin.com/",
       bio: "Ensuring every project meets our rigorous standards of excellence and client satisfaction.",
     },
@@ -301,7 +301,7 @@ const AboutUs: React.FC = () => {
             <h2 className="text-5xl md:text-7xl font-black text-primary uppercase tracking-tighter mb-6 leading-none">
               Our{" "}
               <span className="text-secondary italic font-serif">
-                FOUNDERS
+                Team
               </span>
             </h2>
             <div className="h-1.5 w-24 bg-secondary mx-auto rounded-full mb-8"></div>

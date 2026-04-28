@@ -27,9 +27,9 @@ const Hero: React.FC = () => {
             Elevating Your Presence
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-black leading-tight tracking-tight text-white/90">
-            Solving Problems with <br />
-            <span className="text-secondary">Digital Excellence</span>
+          <h1 className="text-3xl md:text-6xl font-black leading-tight tracking-tight text-white/90">
+            Rise Your Business With a <br />
+            <span className="text-secondary">Stronger Online Presence</span>
           </h1>
         </motion.div>
 

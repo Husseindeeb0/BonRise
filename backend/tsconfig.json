@@ -8,6 +8,8 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "lib": ["ES2022"],
+    "types": ["node"],
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },

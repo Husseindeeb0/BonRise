@@ -44,4 +44,5 @@ export interface ApiResponse {
 
 export interface AuthRequest extends Request {
   userId?: string;
+  cookies: Record<string, any>;
 }

@@ -11,6 +11,9 @@ dotenv.config();
 
 const app = express();
 
+// Trust reverse proxy (Render, Heroku, etc.) so secure cookies work properly
+app.set("trust proxy", 1);
+
 const PORT = process.env.PORT || 5000;
 
 connectDB();

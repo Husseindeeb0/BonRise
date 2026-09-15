@@ -1,119 +1,115 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Globe, Shield, TrendingUp, Zap } from "lucide-react";
+import { Globe2, ShieldCheck, TrendingUp, Zap } from "lucide-react";
 
 const About: React.FC = () => {
   const features = [
     {
-      icon: <Globe className="w-6 h-6" />,
-      title: "Digital Fortress",
+      icon: <Globe2 className="w-5 h-5" />,
+      title: "Bilingual Storefronts",
       description:
-        "Building owned platforms that safeguard your brand's future.",
+        "Full Arabic RTL & English LTR product experiences, built natively into every store.",
     },
     {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Market Authority",
+      icon: <Zap className="w-5 h-5" />,
+      title: "Catalog Authority",
       description:
-        "Projecting the professional image your excellence deserves.",
+        "Dynamic product listings with advanced filters, multi-variant support, and lightning-fast search.",
     },
     {
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: "Scalable Growth",
-      description: "Systems that evolve with your expanding business vision.",
+      icon: <TrendingUp className="w-5 h-5" />,
+      title: "Scalable Order Flow",
+      description: "Real-time order pipelines and inventory systems built to handle any sales volume.",
     },
     {
-      icon: <Shield className="w-6 h-6" />,
-      title: "Absolute Control",
-      description: "Complete ownership of your client relationships and data.",
+      icon: <ShieldCheck className="w-5 h-5" />,
+      title: "Complete Store Control",
+      description: "Full ownership of your products, pricing, orders, customers, and platform — no third-party fees.",
     },
   ];
 
   return (
     <section
       id="about"
-      className="py-32 bg-background relative overflow-hidden"
+      className="py-16 md:py-24 bg-background relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-24 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-14 md:mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="mb-10 text-center lg:text-left text-about-description">
-              <span className="inline-block px-4 py-1.5 mb-6 text-[10px] font-black tracking-[0.4em] text-secondary uppercase bg-secondary/10 rounded-lg border border-secondary/20">
+            <div className="text-center lg:text-left text-about-description">
+              <span className="inline-block px-3.5 py-1 mb-4 text-[10px] font-black tracking-[0.3em] text-secondary uppercase bg-secondary/10 rounded-md border border-secondary/20">
                 Company Profile
               </span>
-              <h3 className="text-4xl md:text-6xl font-black text-primary mb-8 leading-[1.1] tracking-tight">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-primary mb-5 leading-tight tracking-tight">
                 Who We{" "}
-                <span className="text-secondary italic font-serif leading-none text-5xl md:text-7xl">
+                <span className="text-secondary italic font-serif leading-none">
                   Are
                 </span>
               </h3>
-              <div className="space-y-6 text-lg md:text-xl text-primary/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <div className="space-y-4 text-sm sm:text-base text-primary/75 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
                 <p>
                   Upon partnering with the{" "}
                   <span className="text-primary font-bold">BOnRise</span> team,
-                  our clients are equipped with a comprehensive suite of digital
-                  strategies and high-performance software designed to optimize
-                  and expand their operations, empowering them to achieve
-                  sustainable growth in an increasingly competitive digital
-                  world.
+                  businesses gain a comprehensive e-commerce platform — from
+                  dynamic multi-language product catalogs and intelligent order
+                  management to secure authentication and conversion-optimized
+                  checkout experiences.
                 </p>
                 <p>
-                  We believe that a professional online infrastructure is the
-                  key to unlocking the true potential of any business. We help
-                  our clients solve their biggest bottleneck by transitioning
-                  them from a
+                  We solve the critical bottleneck of moving from a basic
+                  social-media presence to a
                   <span className="text-secondary font-bold">
                     {" "}
-                    mere online presence{" "}
+                    fully owned digital storefront{" "}
                   </span>
-                  to
+                  with
                   <span className="text-primary font-bold">
                     {" "}
-                    absolute digital ownership
+                    complete catalog and order control
                   </span>
-                  , ensuring they rise above the competition and dominate their
-                  space.
+                  , enabling brands to dominate their market space with real
+                  commercial infrastructure.
                 </p>
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="lg:sticky lg:top-32"
+            transition={{ duration: 0.8 }}
           >
             <div className="relative">
-              {/* Massive Decorative Quote Mark */}
-              <div className="absolute -top-12 -left-8 text-[12rem] text-secondary/10 font-serif leading-none select-none">
-                “
+              {/* Decorative Quote Mark */}
+              <div className="absolute -top-10 -left-6 text-[8rem] sm:text-[10rem] text-secondary/10 font-serif leading-none select-none pointer-events-none">
+                "
               </div>
 
-              <div className="relative p-10 md:p-14 bg-white/40 backdrop-blur-xl border-2 border-secondary/80 border-l-[6px] border-l-secondary rounded-r-3xl">
-                <blockquote className="text-2xl md:text-4xl font-black text-primary leading-[1.2] mb-12 tracking-tight">
-                  "Your website is the employee that{" "}
+              <div className="relative p-6 sm:p-8 md:p-10 bg-white/40 backdrop-blur-xl border border-secondary/60 border-l-4 border-l-secondary rounded-2xl sm:rounded-3xl shadow-lg">
+                <blockquote className="text-lg sm:text-xl md:text-2xl font-black text-primary leading-snug mb-6 tracking-tight">
+                  "Your online store is the salesman that{" "}
                   <span className="text-secondary">never sleeps</span>, the
-                  salesman that{" "}
-                  <span className="text-secondary">never rests</span>, and the
-                  first impression that{" "}
-                  <span className="text-secondary">lasts forever</span>."
+                  catalog that{" "}
+                  <span className="text-secondary">never closes</span>, and the
+                  revenue engine that{" "}
+                  <span className="text-secondary">scales without limits</span>."
                 </blockquote>
 
-                <div className="flex items-center gap-6 border-t border-primary/5 pt-10">
+                <div className="flex items-center gap-4 border-t border-primary/10 pt-5">
                   <div>
-                    <div className="font-black text-primary text-2xl tracking-tighter uppercase">
+                    <div className="font-black text-primary text-base sm:text-lg tracking-tight uppercase">
                       BOnRise Strategy
                     </div>
-                    <div className="flex items-center gap-2 mt-2">
-                      <span className="h-[2px] w-8 bg-secondary"></span>
-                      <span className="text-[10px] text-secondary font-black uppercase tracking-[0.3em]">
-                        Elevating Local Business
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="h-[2px] w-6 bg-secondary"></span>
+                      <span className="text-[9px] text-secondary font-black uppercase tracking-[0.25em]">
+                        Powering E-Commerce Growth
                       </span>
                     </div>
                   </div>
@@ -124,24 +120,24 @@ const About: React.FC = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full"
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full"
         >
           {features.map((f, i) => (
             <div
               key={i}
-              className="p-6 bg-accent-2/5 rounded-2xl border border-accent-1/10 shadow-sm"
+              className="p-5 sm:p-6 bg-accent-2/5 rounded-2xl border border-accent-1/10 shadow-xs hover:border-secondary/30 transition-all duration-300"
             >
-              <div className="bg-secondary text-white w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+              <div className="bg-secondary text-white w-10 h-10 rounded-xl flex items-center justify-center mb-3.5 shadow-xs">
                 {f.icon}
               </div>
-              <h4 className="text-lg font-black text-primary mb-2 uppercase tracking-tight italic">
+              <h4 className="text-base font-black text-primary mb-1.5 uppercase tracking-tight italic">
                 {f.title}
               </h4>
-              <p className="text-primary/60 text-sm leading-relaxed font-medium">
+              <p className="text-primary/65 text-xs sm:text-sm leading-relaxed font-medium">
                 {f.description}
               </p>
             </div>

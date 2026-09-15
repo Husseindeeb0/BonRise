@@ -1,79 +1,79 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layout, Smartphone, MousePointer2, HeartPulse } from 'lucide-react';
+import { ShoppingCart, Globe2, LayoutDashboard, HeartPulse } from 'lucide-react';
 
 const Services: React.FC = () => {
   const services = [
     {
-      title: "Custom Web Solutions",
-      description: "Performant, SEO-optimized digital ecosystems that turn visitors into loyal customers. No templates, just pure strategy.",
-      icon: <Layout className="w-8 h-8" />,
+      title: "Custom E-Commerce Stores",
+      description: "Tailored storefronts with rich product catalogs, smart filters, multi-variant support, and high-converting checkout flows. No templates — pure custom architecture built to sell.",
+      icon: <ShoppingCart className="w-6 h-6" />,
       tag: "Conversion Focused"
     },
     {
-      title: "Mobile App Development",
-      description: "Powerful iOS and Android applications that keep your business in your customers' pockets 24/7.",
-      icon: <Smartphone className="w-8 h-8" />,
-      tag: "Native Experience"
+      title: "Bilingual Arabic & English",
+      description: "Native Arabic RTL and English LTR support with seamless language switching, localized content, and regionally adapted user experiences your customers feel at home with.",
+      icon: <Globe2 className="w-6 h-6" />,
+      tag: "EN / AR Support"
     },
     {
-      title: "UX/UI Excellence",
-      description: "We focus on frictionless user journeys so your clients get what they want in the fastest time possible.",
-      icon: <MousePointer2 className="w-8 h-8" />,
-      tag: "User Centric"
+      title: "Order & Inventory Control",
+      description: "Complete operational dashboards for real-time order processing, automated stock tracking, dynamic product variants, and customer management — all under your full control.",
+      icon: <LayoutDashboard className="w-6 h-6" />,
+      tag: "Full Control"
     },
     {
-      title: "Full-Scale Maintenance",
-      description: "Direct support and real-time solutions for any technical problem. Your business never stops, and neither do we.",
-      icon: <HeartPulse className="w-8 h-8" />,
+      title: "Maintenance & Live Support",
+      description: "Direct support and real-time solutions for any technical issue. Your store never goes down, and neither do we — 24/7 monitoring keeps your business running at full speed.",
+      icon: <HeartPulse className="w-6 h-6" />,
       tag: "24/7 Support"
     }
   ];
 
   return (
-    <section id="services" className="py-24 bg-accent-2/5">
+    <section id="services" className="py-16 md:py-24 bg-accent-2/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <motion.h2 
+        <div className="text-center mb-12 md:mb-14">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-black text-primary mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-primary mb-3.5 tracking-tight"
           >
             Solutions That <span className="text-secondary">Scale</span>
           </motion.h2>
-          <motion.p 
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.2 }}
-             className="text-xl text-primary/60 max-w-2xl mx-auto font-medium"
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+            className="text-sm sm:text-base md:text-lg text-primary/65 max-w-2xl mx-auto font-medium"
           >
-            Professional software solutions tailored to meet your unique business objectives.
+            End-to-end e-commerce platforms built for full catalog control, seamless orders, and bilingual reach.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group bg-background p-8 rounded-3xl shadow-sm border border-accent-1/10 hover:border-secondary/30 transition-all duration-300 hover:shadow-[0_20px_50px_rgba(46,196,182,0.1)] h-full flex flex-col"
+              transition={{ delay: index * 0.08 }}
+              className="group bg-background p-6 rounded-2xl shadow-xs border border-accent-1/10 hover:border-secondary/30 transition-all duration-300 hover:shadow-md h-full flex flex-col"
             >
-              <div className="w-16 h-16 bg-accent-2/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
+              <div className="w-12 h-12 bg-accent-2/10 rounded-xl flex items-center justify-center mb-4 text-primary group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
                 {service.icon}
               </div>
-              <div className="mb-4">
-                <span className="text-[10px] font-black uppercase tracking-widest text-secondary bg-secondary/10 px-2 py-1 rounded-md">
-                   {service.tag}
+              <div className="mb-3">
+                <span className="text-[9px] font-black uppercase tracking-wider text-secondary bg-secondary/10 px-2 py-0.5 rounded">
+                  {service.tag}
                 </span>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-primary">{service.title}</h3>
-              <p className="text-primary/60 leading-relaxed mb-6 grow">{service.description}</p>
-              <div className="h-1 w-12 bg-secondary/30 group-hover:w-full transition-all duration-500 rounded-full"></div>
+              <h3 className="text-lg font-bold mb-2.5 text-primary">{service.title}</h3>
+              <p className="text-primary/65 text-xs sm:text-sm leading-relaxed mb-4 grow font-normal">{service.description}</p>
+              <div className="h-0.5 w-8 bg-secondary/30 group-hover:w-full transition-all duration-300 rounded-full"></div>
             </motion.div>
           ))}
         </div>

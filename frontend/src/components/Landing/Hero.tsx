@@ -22,15 +22,13 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center"
         >
-          <div className="inline-flex items-center px-3 py-1 mb-4 text-[10px] font-black tracking-[0.3em] text-secondary uppercase bg-secondary/5 backdrop-blur-xl border border-secondary/20 rounded-full shadow-lg">
-            <span className="flex h-1.5 w-1.5 rounded-full bg-secondary mr-2 animate-pulse"></span>
-            Elevating Your Presence
-          </div>
-
           <h1 className="text-3xl md:text-6xl font-black leading-tight tracking-tight text-white/90">
             Rise Your Business With a <br />
             <span className="text-secondary">Stronger Online Presence</span>
           </h1>
+          <p className="mt-4 text-white/60 text-base md:text-lg max-w-2xl font-medium">
+            Custom-built bilingual storefronts (Arabic & English) with complete product management, order tracking, secure checkout — and zero platform fees.
+          </p>
         </motion.div>
 
         {/* BOTTOM: Essential Navigation / CTAs */}

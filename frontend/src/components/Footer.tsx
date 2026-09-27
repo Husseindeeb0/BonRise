@@ -1,6 +1,5 @@
 import React from 'react';
 import { Mail, Phone } from 'lucide-react';
-import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
@@ -14,7 +13,7 @@ const Footer: React.FC = () => {
               Architecting high-performance digital infrastructures that empower businesses to achieve absolute ownership of their digital future.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.instagram.com/_bonrise" className="p-2 bg-white/5 rounded-lg hover:bg-secondary/20 hover:text-secondary transition-all">
+              <a href="https://www.instagram.com/_bonrise/" className="p-2 bg-white/5 rounded-lg hover:bg-secondary/20 hover:text-secondary transition-all">
                 <FaInstagram size={18} />
               </a>
             </div>

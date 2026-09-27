@@ -9,7 +9,6 @@ import {
   Layers,
   Search,
 } from "lucide-react";
-import { FaLinkedin } from "react-icons/fa";
 
 import { TEAM_MEMBERS } from "../../constants/about";
 

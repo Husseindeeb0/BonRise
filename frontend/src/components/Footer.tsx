@@ -14,10 +14,7 @@ const Footer: React.FC = () => {
               Architecting high-performance digital infrastructures that empower businesses to achieve absolute ownership of their digital future.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-white/5 rounded-lg hover:bg-secondary/20 hover:text-secondary transition-all">
-                <FaLinkedin size={18} />
-              </a>
-              <a href="#" className="p-2 bg-white/5 rounded-lg hover:bg-secondary/20 hover:text-secondary transition-all">
+              <a href="https://www.instagram.com/_bonrise" className="p-2 bg-white/5 rounded-lg hover:bg-secondary/20 hover:text-secondary transition-all">
                 <FaInstagram size={18} />
               </a>
             </div>
@@ -39,7 +36,6 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-bold mb-6 text-secondary uppercase tracking-wider">Services</h4>
             <ul className="space-y-4 text-primary">
               <li><a href="#services" className="hover:text-accent-2 transition-colors">Custom Web Solutions</a></li>
-              <li><a href="#services" className="hover:text-accent-2 transition-colors">Mobile Applications</a></li>
               <li><a href="#services" className="hover:text-accent-2 transition-colors">UX/UI Excellence</a></li>
               <li><a href="#services" className="hover:text-accent-2 transition-colors">Maintenance & Support</a></li>
             </ul>

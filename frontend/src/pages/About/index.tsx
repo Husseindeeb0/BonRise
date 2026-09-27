@@ -267,49 +267,49 @@ const AboutUs: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {founders.map((founder, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="group relative"
-              >
-                <div className="relative z-10 p-5 sm:p-6 rounded-2xl border border-primary/5 transition-all duration-300 h-full flex flex-col items-center text-center shadow-md hover:shadow-lg hover:border-secondary group/card bg-white/50 backdrop-blur-sm">
-                  <motion.div
-                    whileHover={{ boxShadow: "0 0 0 6px rgba(46,196,182,0.12)" }}
-                    className="w-14 h-14 mb-3.5 rounded-xl bg-secondary/10 flex items-center justify-center transition-all duration-300 border border-secondary/20"
-                  >
-                    <UserCircle2 className="w-7 h-7 text-secondary" />
-                  </motion.div>
+          {/* Infinite Moving Team Members Slideshow */}
+          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <motion.div
+              className="flex gap-6 w-max py-4 cursor-grab active:cursor-grabbing"
+              animate={{
+                x: ["-50%", "0%"],
+              }}
+              transition={{
+                ease: "linear",
+                duration: 28,
+                repeat: Infinity,
+              }}
+              whileHover={{ animationPlayState: "paused" }}
+            >
+              {[...founders, ...founders].map((founder, index) => (
+                <div
+                  key={index}
+                  className="w-[280px] sm:w-[320px] shrink-0 group relative flex"
+                >
+                  <div className="w-full relative z-10 p-5 sm:p-6 rounded-2xl border border-primary/5 transition-all duration-300 h-full flex flex-col items-center text-center shadow-md hover:shadow-lg hover:border-secondary group/card bg-white/60 backdrop-blur-sm">
+                    <motion.div
+                      whileHover={{ boxShadow: "0 0 0 6px rgba(46,196,182,0.12)" }}
+                      className="w-14 h-14 mb-3.5 rounded-xl bg-secondary/10 flex items-center justify-center transition-all duration-300 border border-secondary/20"
+                    >
+                      <UserCircle2 className="w-7 h-7 text-secondary" />
+                    </motion.div>
 
-                  <h3 className="text-base font-black text-primary uppercase tracking-tight mb-1 transition-colors group-hover/card:text-secondary">
-                    {founder.name}
-                  </h3>
-                  <div className="text-secondary font-black mb-2.5 uppercase text-[9px] tracking-[0.25em]">
-                    {founder.role}
+                    <h3 className="text-base font-black text-primary uppercase tracking-tight mb-1 transition-colors group-hover/card:text-secondary">
+                      {founder.name}
+                    </h3>
+                    <div className="text-secondary font-black mb-2.5 uppercase text-[9px] tracking-[0.25em]">
+                      {founder.role}
+                    </div>
+
+                    <div className="w-8 h-px bg-secondary/20 mb-3 rounded-full transition-all group-hover/card:w-12 group-hover/card:bg-secondary/40"></div>
+
+                    <p className="text-primary/65 mb-4 grow leading-relaxed font-medium text-xs">
+                      {founder.bio}
+                    </p>
                   </div>
-
-                  <div className="w-8 h-px bg-secondary/20 mb-3 rounded-full transition-all group-hover/card:w-12 group-hover/card:bg-secondary/40"></div>
-
-                  <p className="text-primary/65 mb-4 grow leading-relaxed font-medium text-xs">
-                    {founder.bio}
-                  </p>
-
-                  <a
-                    href={founder.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-primary text-white rounded-lg font-black uppercase text-[9px] tracking-[0.15em] transition-all duration-300 hover:bg-secondary shadow-xs"
-                  >
-                    <FaLinkedin size={12} className="text-white" />
-                    LinkedIn
-                  </a>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
